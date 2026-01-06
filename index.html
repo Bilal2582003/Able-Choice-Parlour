@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Able-Choice Studio | Luxury Beauty Parlor</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
-    <link rel="stylesheet" href="assets/css/font-awesome-6.4.0-all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/font-awesome-6.4.0-all.min.css">-->
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.css"> 
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap"> -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="btn">Book Now</a></li>
+                    <li><a href="#contact" class="btn">Book Now</a></li>
                 </ul>
             </div>
         </nav>
@@ -155,39 +156,65 @@
 
     <!-- Gallery Section -->
     <section id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Beauty Transformations</h2>
-                <p>Witness the stunning results of our expert beauty treatments</p>
+        <div class="gallery-container">
+        <h1 class="gallery-title">Beauty Gallery</h1>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="hair">
+                <img src="https://i.pinimg.com/736x/f3/90/37/f3903796869347e7f8e7a55f765584d4.jpg" alt="Hair Styling">
+                <div class="gallery-overlay">
+                    <h4>Hair Styling</h4>
+                </div>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <!-- https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80 -->
-                    <img src="https://i.pinimg.com/736x/f3/90/37/f3903796869347e7f8e7a55f765584d4.jpg" alt="Hair Styling Transformation">
-                    <div class="gallery-overlay">
-                        <h4>Hair Styling</h4>
-                    </div>
+            <div class="gallery-item" data-category="makeup">
+                <img src="https://t4.ftcdn.net/jpg/03/22/80/69/240_F_322806998_Vb1isNrcMqbegaok0AY41VEgGEpCr5AC.jpg" alt="Makeup Artistry">
+                <div class="gallery-overlay">
+                    <h4>Makeup Artistry</h4>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Makeup Artistry">
-                    <div class="gallery-overlay">
-                        <h4>Makeup Artistry</h4>
-                    </div>
+            </div>
+            <div class="gallery-item" data-category="nails">
+                <img src="https://t3.ftcdn.net/jpg/01/84/71/06/240_F_184710668_mAiofSt4PkqOFXXvKpT6mBR40yiecjfF.jpg" alt="Nail Art">
+                <div class="gallery-overlay">
+                    <h4>Nail Art Design</h4>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.pinimg.com/736x/f3/90/37/f3903796869347e7f8e7a55f765584d4.jpg" alt="Nail Art Design">
-                    <div class="gallery-overlay">
-                        <h4>Nail Art Design</h4>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Facial Treatment">
-                    <div class="gallery-overlay">
-                        <h4>Facial Treatment</h4>
-                    </div>
+            </div>
+            <div class="gallery-item" data-category="facial">
+                <img src="https://as1.ftcdn.net/v2/jpg/02/56/10/28/1000_F_256102884_DpVm0pzGi0NI9NZTrfM9mY7zCTJGA0rE.jpg" alt="Facial Treatment">
+                <div class="gallery-overlay">
+                    <h4>Facial Treatment</h4>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal for showing more pictures -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Gallery Title</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-gallery" id="modalGallery">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+            <div class="modal-description" id="modalDescription">
+                <!-- Description will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for zooming images -->
+    <div class="image-modal" id="imageModal">
+        <button class="close-image-modal" id="closeImageModal">&times;</button>
+        <div class="image-nav">
+            <button class="nav-btn" id="prevImage"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="image-modal-content">
+            <img id="zoomedImage" src="" alt="Zoomed Image">
+        </div>
+        <div class="image-counter" id="imageCounter">1 / 5</div>
+    </div>
     </section>
 
     <!-- Contact Section -->
