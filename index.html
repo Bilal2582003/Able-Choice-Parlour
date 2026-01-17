@@ -259,11 +259,11 @@
                 </div>
                 <div class="contact-form">
                     <h3>Book Your Appointment</h3>
-                    <form id="appointmentForm">
-                        <input type="text" placeholder="Your Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="tel" placeholder="Phone Number" required>
-                        <select required>
+                    <form id="appointmentForm" method="POST">
+                        <input type="text" name="name" placeholder="Your Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <select name="service" required>
                             <option value="">Select Service</option>
                             <option value="facial">Facial & Skin Care</option>
                             <option value="hair">Hair Styling</option>
@@ -272,8 +272,8 @@
                             <option value="eyebrows">Eyebrow Design</option>
                             <option value="body">Body Treatments</option>
                         </select>
-                        <input type="date" placeholder="Preferred Date" required>
-                        <textarea placeholder="Special Requests or Notes" rows="5"></textarea>
+                        <input type="date" name="date" placeholder="Preferred Date" required>
+                        <textarea placeholder="Special Requests or Notes" name="message" rows="5"></textarea>
                         <button type="submit" class="btn">Book Now</button>
                     </form>
                 </div>
